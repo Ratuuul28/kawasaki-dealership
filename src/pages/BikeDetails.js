@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import "./BikeDetails.css";
 import Navbar from "./components/Navbar";
@@ -144,7 +144,7 @@ function BikeDetails() {
   const { id } = useParams();
   const bike = bikes[id];
 
-  const selectedImage = bike.images[0];
+  <img src={bike.images[0]} alt="bike" className="hero-img" />
 
   if (!bike) {
     return <h1 style={{ color: "white" }}>Bike not found</h1>;
