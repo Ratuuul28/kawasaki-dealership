@@ -144,9 +144,7 @@ function BikeDetails() {
   const { id } = useParams();
   const bike = bikes[id];
 
-  const [selectedImage, setSelectedImage] = useState(
-    bike?.images[0]
-  );
+  const selectedImage = bike.images[0];
 
   if (!bike) {
     return <h1 style={{ color: "white" }}>Bike not found</h1>;
