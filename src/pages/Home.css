@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+
+  position: fixed;     /* 🔥 important */
+  top: 0;
+  left: 0;
+  width: 95%;
+
+  z-index: 1000;       /* 🔥 sabse upar rahe */
+  background: rgba(0, 0, 0, 0.6);  /* glass effect */
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  color: #00ff00;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links button {
+  margin-left: 20px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* 🔹 Hero Section */
+.hero {
+  height: 100vh;
+  background: url("https://assets.isu.pub/document-structure/240614134154-b4257954d4cb32046f8b4eebc55907fa/v1/c027e79bdb3e0115cf79a5a0929422ca.jpeg") no-repeat center/cover; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: scroll;
+  margin-top: 80px;
+  width: 110%;
+}
+
+.overlay {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 60px;
+  border-radius: 10px;
+}
+
+.dealership-name {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+/* 🔹 Buttons */
+.buttons button {
+  margin: 10px;
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.explore {
+  background-color: #00ff00;
+  color: black;
+}
+
+.test-ride {
+  background-color: transparent;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+}
+
+/* 🔹 Features Section */
+.features {
+  padding: 60px 40px;
+  width: 100%;
+}
+
+.feature-heading {
+  color: #00ff00;
+  font-size: 50px;
+  text-shadow: 0 0 10px #00ff00;
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+/* 🔹 Cards */
+.bike-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* 2 equal big cards */
+  gap: 40px;
+
+  width: 100%;          /* 🔥 full width */
+  max-width: 1200px;    /* optional limit */
+  margin: auto;
+}
+
+.card {
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden;        /* 🔥 IMPORTANT (image bahar nahi jayegi) */
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 470px;        /* thoda aur bada */
+  object-fit: cover;
+}
+
+.card button {
+  margin-top: 15px;
+  background-color: #00ff00;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}

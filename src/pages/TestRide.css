@@ -1,0 +1,42 @@
+.test-container {
+  height: 100vh;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+
+.test-container h1 {
+  color: #00ff00;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.test-form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.test-form input,
+.test-form select {
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  outline: none;
+}
+
+.test-form button {
+  background-color: #00ff00;
+  color: black;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.test-form button:hover {
+  background-color: black;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+}
