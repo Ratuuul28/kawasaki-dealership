@@ -8,9 +8,10 @@
 .garage-heading {
   text-align: center;
   color: #00ff00;
-  font-size: 40px;
+  font-size: 100px;
   text-shadow: 0 0 10px #00ff00;
   margin-bottom: 40px;
+  margin-top: 10px;
 }
 
 /* 🔥 GRID SYSTEM */

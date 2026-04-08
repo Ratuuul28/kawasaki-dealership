@@ -45,13 +45,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   background-attachment: scroll;
   margin-top: 80px;
-  width: 110%;
+  width: 100%;
+  margin-right: 120px;
 }
 
 .overlay {
   text-align: center;
+  align-items: center;
   background: rgba(0, 0, 0, 0.6);
   padding: 60px;
   border-radius: 10px;
@@ -60,6 +63,7 @@ body {
 .dealership-name {
   font-size: 50px;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .description {
@@ -69,26 +73,67 @@ body {
 /* 🔹 Buttons */
 .buttons button {
   margin: 10px;
-  padding: 10px 30px;
+  padding: 20px 30px;
   border: none;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-right: 270px;
+  margin-left: -270px;
 }
 
 .explore {
   background-color: #00ff00;
   color: black;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .test-ride {
   background-color: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.explore-btn {
+  padding: 16px 40px;
+  background: #00ff00;
+  color: black;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  width: 100%;
+
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: #00cc00;
+  transform: scale(1.05);
 }
 
 /* 🔹 Features Section */
 .features {
   padding: 60px 40px;
   width: 100%;
+  text-align: center;
 }
 
 .feature-heading {
@@ -138,4 +183,23 @@ body {
 .card:hover {
   transform: scale(1.05);
   transition: 0.3s;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 25px;
+  border-radius: 15px;
+  width: 300px;
 }

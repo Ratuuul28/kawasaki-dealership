@@ -1,27 +1,48 @@
-import React from "react";
-import "./TestRide.css";
+import { useState } from "react";
 
 function TestRide() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    bike_name: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    setForm({...form, [e.target.name]: e.target.value});
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost/kawasaki/bookRide.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(form)
+    });
+
+    const data = await res.json();
+
+    if(data.status === "success"){
+      alert("Test Ride Booked 🚀");
+    } else {
+      alert("Error");
+    }
+  };
+
   return (
-    <div className="test-container">
-      <h1>Book a Test Ride</h1>
+    <form onSubmit={handleSubmit}>
+      <input name="name" placeholder="Name" onChange={handleChange} />
+      <input name="email" placeholder="Email" onChange={handleChange} />
+      <input name="phone" placeholder="Phone" onChange={handleChange} />
+      <input name="bike_name" placeholder="Bike Name" onChange={handleChange} />
+      <textarea name="message" placeholder="Message" onChange={handleChange}></textarea>
 
-      <form className="test-form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="tel" placeholder="Phone Number" required />
-
-        <select required>
-          <option value="">Select Bike</option>
-          <option>Ninja ZX-10R</option>
-          <option>Z900</option>
-          <option>Ninja 650</option>
-        </select>
-
-        <input type="date" required />
-
-        <button type="submit">Book Now</button>
-      </form>
-    </div>
+      <button type="submit">Book Test Ride</button>
+    </form>
   );
 }
 
