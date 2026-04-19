@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Contact.css";
 
 function Contact() {
-
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,13 +16,19 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost/kawasaki-api/contact.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(form)
-      });
+      // 🔥 FIX: FormData use kiya (no CORS issue)
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("message", form.message);
+
+      const res = await fetch(
+        "https://kawasakidealershiprv.infinityfreeapp.com/contact.php",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
 
       const data = await res.json();
 
@@ -36,8 +41,8 @@ function Contact() {
         });
       } else {
         alert("Error ❌");
+        console.log(data);
       }
-
     } catch (err) {
       console.error(err);
       alert("Server error ❌");
@@ -46,11 +51,9 @@ function Contact() {
 
   return (
     <div className="contact-container">
-
       <h1>Contact Us</h1>
 
       <form onSubmit={handleSubmit} className="contact-form">
-
         <input
           type="text"
           name="name"
@@ -78,7 +81,6 @@ function Contact() {
         ></textarea>
 
         <button type="submit">Send Message</button>
-
       </form>
     </div>
   );

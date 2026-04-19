@@ -25,7 +25,7 @@ function Home() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost/kawasaki-api/bookRide.php", {
+      const res = await fetch("https://kawasakidealershiprv.infinityfreeapp.com/bookRide.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -79,11 +79,10 @@ function Home() {
               <button className="explore">Explore Bikes</button>
             </Link>
 
-            {/* ✅ CHANGED: removed Link and added popup trigger */}
-            <button
+            <button>
               className="test-ride"
               onClick={() => setShowForm(true)}
-            >
+            
               Book a Test Ride
             </button>
           </div>

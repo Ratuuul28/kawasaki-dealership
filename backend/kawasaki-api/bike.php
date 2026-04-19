@@ -1,7 +1,7 @@
 <?php
 
 // ✅ CORS fix
-header("Access-Control-Allow-Origin: http://localhost:3000");
+header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");{
@@ -9,7 +9,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");{
     exit();
 }
 // ✅ DB connection
-$conn = new mysqli("localhost", "root", "", "kawasaki");
+$conn = new mysqli("ssql100.infinityfree.com", "if0_41680672", "ratul@mail28", "if0_41680672_kawasaki");
 
 // ❌ Agar connection fail ho
 if ($conn->connect_error) {

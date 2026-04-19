@@ -1,4 +1,5 @@
 <?php
+require 'db.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -11,7 +12,7 @@ f ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-$conn = new mysqli("localhost", "root", "", "kawasaki");
+$conn = new mysqli("ssql100.infinityfree.com", "if0_41680672", "ratul@mail28", "if0_41680672_kawasaki");
 
 // Check connection
 if ($conn->connect_error) {

@@ -10,7 +10,7 @@ function Garage() {
 
   // STEP 2: fetch data
   useEffect(() => {
-    fetch("http://localhost/backend/kawasaki-api/bikes.php")
+      fetch("/bikes.php")
     .then(res => res.json())
   .then(data => setBikes(data))
   .catch(err => console.error("Fetch error:", err));

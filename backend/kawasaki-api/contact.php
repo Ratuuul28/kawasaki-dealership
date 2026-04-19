@@ -1,35 +1,58 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:3000");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Content-Type: application/json");
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
-$conn = new mysqli("localhost", "root", "", "kawasaki");
+// DB connection
+$conn = new mysqli("sql100.infinityfree.com", "if0_41680672", "ratulmail28", "if0_41680672_kawasaki");
 
-$data = json_decode(file_get_contents("php://input"), true);
-
-$name = $data['name'] ?? '';
-$email = $data['email'] ?? '';
-$message = $data['message'] ?? '';
-
-if ($name == '' || $email == '' || $message == '') {
-    echo json_encode(["status" => "error"]);
+// Check connection
+if ($conn->connect_error) {
+    echo json_encode([
+        "status" => "error",
+        "error" => "DB Connection Failed",
+        "details" => $conn->connect_error
+    ]);
     exit();
 }
 
-$stmt = $conn->prepare("INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $name, $email, $message);
+// Get form data (FormData use ho raha hai)
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$message = $_POST['message'] ?? '';
 
-if ($stmt->execute()) {
-    echo json_encode(["status" => "success"]);
-} else {
-    echo json_encode(["status" => "error"]);
+// Validation
+if ($name == "" || $email == "" || $message == "") {
+    echo json_encode([
+        "status" => "error",
+        "error" => "Empty fields"
+    ]);
+    exit();
 }
 
-$stmt->close();
+// Escape data
+$name = $conn->real_escape_string($name);
+$email = $conn->real_escape_string($email);
+$message = $conn->real_escape_string($message);
+
+// Insert query
+$sql = "INSERT INTO contact_messages (name, email, message) 
+        VALUES ('$name', '$email', '$message')";
+
+if ($conn->query($sql)) {
+    echo json_encode(["status" => "success"]);
+} else {
+    echo json_encode([
+        "status" => "error",
+        "db_error" => $conn->error
+    ]);
+}
+
 $conn->close();
 ?>

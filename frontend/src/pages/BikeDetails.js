@@ -20,11 +20,11 @@ function BikeDetails() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost/backend/kawasaki-api/bike.php?id=${id}`)
-      .then(res => res.json())
-      .then(data => setBike(data))
-      .catch(err => console.error("Bike Fetch Error:", err));
-  }, [id]);
+  fetch(`https://kawasakidealershiprv.infinityfreeapp.com/bike.php?id=${id}`)
+    .then(res => res.json())
+    .then(data => setBike(data))
+    .catch(err => console.error("Bike Fetch Error:", err));
+}, [id]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

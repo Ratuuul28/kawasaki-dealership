@@ -16,7 +16,7 @@ function TestRide() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost/kawasaki/bookRide.php", {
+    const res = await fetch("https://kawasakidealershiprv.infinityfreeapp.com/bookRide.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
